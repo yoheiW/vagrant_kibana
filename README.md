@@ -1,5 +1,6 @@
 # vagrant_kibana
-mysql slowlog to kibana on vagrant
+mysqlのスロークエリをkibanaで可視化する環境のデモ版です。
+以下は使用手順になります。
 
 ```
 vagrant up
