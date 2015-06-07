@@ -1,0 +1,11 @@
+[kibana-server]
+192.168.33.10
+
+[all:vars]
+ansible_ssh_port=22
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
+ansible_sudo_pass=vagrant
+
+[kibana-server:vars]
+mysql_root_db_pass=dbroot

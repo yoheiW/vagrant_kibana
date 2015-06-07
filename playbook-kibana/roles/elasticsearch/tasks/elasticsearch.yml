@@ -1,0 +1,22 @@
+---
+# roles/elasticsearch/tasks/elasticsearch.yml
+- name: set elasticsearch.repo
+  copy: src="elasticsearch.repo" dest="/etc/yum.repos.d/elasticsearch.repo"
+        owner=root
+        group=root
+        mode=0644
+  tags: 
+    - elastic
+
+- name: Install jdk
+  yum: name=java-1.8.0-openjdk state=present
+  tags: 
+    - elastic
+
+- name: Install elasticsearch
+  yum: name=elasticsearch state=present
+  notify:
+      - restart elasticsearch
+  tags: 
+    - elastic
+

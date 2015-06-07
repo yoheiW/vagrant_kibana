@@ -1,0 +1,29 @@
+---
+# roles/kibana/tasks/kibana.yml
+- name: get kibana src
+  get_url: url="https://download.elastic.co/kibana/kibana/kibana-4.0.2-linux-x64.tar.gz" dest="/opt/"
+  tags: 
+    - kibana
+
+- name: unpack
+  command: "tar zxvf /opt/kibana-4.0.2-linux-x64.tar.gz -C /opt"
+  tags: 
+    - kibana
+
+- name: create symlinc
+  file: src=/opt/kibana-4.0.2-linux-x64
+        dest=/opt/kibana
+        state=link
+  tags: 
+    - kibana
+
+- name: set init script
+  copy: src="kibana" dest="/etc/init.d/kibana"
+        owner=root
+        group=root
+        mode=0755
+  notify: restart kibana
+  tags: 
+    - kibana
+
+

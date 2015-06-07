@@ -1,0 +1,14 @@
+---
+# roles/elasticsearch/tasks/elasticsearch_plugin.yml
+- name: install plugin marverl
+  command: "/usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest"
+  tags: 
+    - elasticplugin
+
+- name: install plugin head
+  command: "/usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head"
+  notify:
+      - restart elasticsearch
+  tags: 
+    - elasticplugin
+

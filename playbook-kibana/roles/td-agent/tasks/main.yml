@@ -1,0 +1,5 @@
+---
+# roles/td-agent/tasks/main.yml
+- include: td-agent.yml
+- include: td-agent_plugin.yml
+- include: td-agent_config.yml

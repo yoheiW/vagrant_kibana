@@ -1,0 +1,12 @@
+---
+# roles/td-agent/tasks/td-agent_plugin.yml
+- name: install fluent-plugin-elasticsearch
+  command: "td-agent-gem install fluent-plugin-elasticsearch"
+  tags: 
+    - td-agent_plugin
+
+- name: install fluent-plugin-elasticsearch
+  command: "td-agent-gem install fluent-plugin-mysqlslowquery"
+  tags: 
+    - td-agent_plugin
+

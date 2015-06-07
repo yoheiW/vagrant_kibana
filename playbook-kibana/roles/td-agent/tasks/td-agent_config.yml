@@ -1,0 +1,14 @@
+---
+# roles/td-agent/tasks/td-agent_config.yml
+- name: change slow.log permission
+  file: path=/var/lib/mysql/slow.log mode=0664
+  tags: 
+    - td-agent_conf
+
+- name: set td-agent.conf
+  copy: src="td-agent.conf" dest="/etc/td-agent/td-agent.conf" backup
+  notify:
+      restart td-agent
+  tags: 
+    - td-agent_conf
+

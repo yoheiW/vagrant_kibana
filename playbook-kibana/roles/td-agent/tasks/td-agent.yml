@@ -1,0 +1,17 @@
+---
+# roles/td-agent/tasks/td-agent.yml
+- name: set td.repo
+  copy: src="td.repo" dest="/etc/yum.repos.d/td.repo"
+        owner=root
+        group=root
+        mode=0644
+  tags: 
+    - td-agent
+
+- name: Install td-agent
+  yum: name=td-agent state=present
+  notify:
+      - restart td-agent
+  tags: 
+    - td-agent
+

@@ -1,0 +1,9 @@
+---
+- hosts: kibana-server
+  sudo: yes
+  roles: 
+    - common
+    - mysql
+    - elasticsearch
+    - kibana
+    - td-agent
