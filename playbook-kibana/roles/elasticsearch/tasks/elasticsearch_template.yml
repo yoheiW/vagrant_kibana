@@ -1,0 +1,13 @@
+---
+# roles/elasticsearch/tasks/elasticsearch_template.yml
+- name: set elasticsearch template file
+  copy: src="template.txt" dest="/tmp/template.txt"
+  tags: 
+    - elastic_template
+
+- name: set elasticsearch template
+  command: "curl -X PUT localhost:9200/_template/slowlog -d'@/tmp/template.txt'"
+  tags: 
+    - elastic_template
+
+

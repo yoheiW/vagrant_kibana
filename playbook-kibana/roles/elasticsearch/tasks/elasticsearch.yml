@@ -20,3 +20,7 @@
   tags: 
     - elastic
 
+- name: be sure elasticsearch is running and enabled
+  service: name=elasticsearch state=started enabled=yes
+  tags:
+    - mysql

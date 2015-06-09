@@ -2,3 +2,4 @@
 # roles/elasticsearch/tasks/main.yml
  - include: elasticsearch.yml
  - include: elasticsearch_plugin.yml
+ - include: elasticsearch_template.yml

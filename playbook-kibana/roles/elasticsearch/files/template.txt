@@ -1,0 +1,53 @@
+{
+  "template": "slowlog_*",
+    "mappings":{
+      "_default_" : {
+            "_ttl" : { "enabled" : true, "default" : "7d" }
+        },
+      "mysql": {
+          "properties": {
+             "@log_name": {
+                "type": "string"
+             },
+             "@timestamp": {
+                "type": "date",
+                "format": "dateOptionalTime"
+             },
+             "db": {
+                "type": "string"
+             },
+             "host": {
+                "type": "string"
+             },
+             "host_ip": {
+                "type": "string"
+             },
+             "lock_time": {
+                "type": "double"
+             },
+             "query_time": {
+                "type": "double"
+             },
+             "rows_examined": {
+                "type": "long"
+             },
+             "rows_sent": {
+                "type": "long"
+             },
+             "sql": {
+                "type": "string"
+             },
+             "user": {
+                "type": "string"
+             },
+             "sql_finger": {
+                "type": "string",
+                "index" : "not_analyzed",
+                "norms" : {
+                    "enabled" : false
+                }
+             }
+          }
+      }
+  }
+}

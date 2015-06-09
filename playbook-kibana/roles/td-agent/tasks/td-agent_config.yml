@@ -5,6 +5,11 @@
   tags: 
     - td-agent_conf
 
+- name: set finger_print.rb
+  copy: src="finger_print.rb" dest="/etc/td-agent/plugin/finger_print.rb" backup
+  tags: 
+    - td-agent_conf
+
 - name: set td-agent.conf
   copy: src="td-agent.conf" dest="/etc/td-agent/td-agent.conf" backup
   notify:
